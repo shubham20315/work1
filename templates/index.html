@@ -1,0 +1,76 @@
+<html>
+<title>Covid_19_Prediction_Application</title>
+<!-- stylesheets -->
+<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+<head>
+<style>
+.borderexample0
+{
+border-style:solid;
+border-color:red;
+padding:0.15em;
+}
+.borderexample1
+{
+border-style:solid;
+border-color:orange;
+padding:0.15em;
+}
+.borderexample2
+{
+border-style:solid;
+border-color:green;
+padding:0.15em;
+}
+.borderexample3
+{
+	border-style:solid;
+	border-color:blue;
+	padding:0.35em;
+}
+form 
+{
+    width: 400px;
+    margin: 10 auto;
+	align: center;
+}
+</style>
+</head>
+<body class ="borderexample6" style="background-color:beige;">
+<div class="row">
+  <div class="col-md-11">
+    <h1 align="center"><b><span style="color:black"><U>IIIT Delhi</U></span></b></h1>
+	<h2 align="center"><b><U>Capstone</b></U></h1>
+	<h2 align="center"><b><U>on</b></U></h2>
+    <h2 align="center"><b><U>Covid-19 prediction Application</b></U></h2>
+	<h2 align="center"><U></U></h2>
+	<h4 align="center">Upload a chest image</h4>
+    <br>
+    <form action="" method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+
+    <h2>Results</h2>
+    <br>
+    <table class="table" id="results-table">
+        <tr>
+          <th>Image</th>
+          <th>Prediction</th>
+        </tr>
+		<tr>
+          {% block content %}{% endblock %}
+        </tr>
+    </table>
+  </div>
+</div>
+<h2 class="borderexample0" align="center"><span style="color:red">Made By Mritunjay, Naveen, Shubham and Sumeet Patiyal</span></h2>
+<h2 class="borderexample1" align="center"><span style="color:orange">Under the guidance of Dr G.P.S Raghava </span></h2>
+
+
+
+
+
+</body>
+</html>
