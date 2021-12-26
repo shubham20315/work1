@@ -78,6 +78,10 @@ ALLOWED_EXTENSIONS = set(['jpg', 'jpeg'])
 
 def get_as_base64(url):
     return base64.b64encode(requests.get(url).content)
+def softmax(x):
+    """Compute softmax values for each sets of scores in x."""
+    e_x = np.exp(x - np.max(x))
+    return e_x / e_x.sum(axis=0) # only difference
 
 
 
@@ -89,7 +93,8 @@ def predict(file):
     array = model.predict(x)
     print("prediction made by the program ",array)
     result = array[0]
-    answer = np.argmax(result)
+    answer1 = softmax(result)
+    answer=np.argmax(answer1)
     return answer
 
 def my_random_string(string_length=10):
@@ -126,7 +131,7 @@ def upload_file():
             #print(result)
             if result == 0.0:
                 label='covid'
-            elif result == 1.0:
+            else:
         	    label='non-covid'
             
             #print(file_path)
